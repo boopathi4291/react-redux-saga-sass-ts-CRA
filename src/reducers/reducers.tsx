@@ -8,7 +8,7 @@ export default function records(state: Irecords[] = [], action: any) {
     case actionTypes.EDIT_RECORD:
       const index = action.record.index;
       const record = action.record.record;
-      return state.map((item, i) => (
+      return [...state].map((item, i) => (
         i === index ? { ...item, title: record.title, date: record.date, amount: record.amount } : item
       ));
 
