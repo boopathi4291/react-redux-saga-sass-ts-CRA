@@ -1,0 +1,29 @@
+.App {
+  text-align: left; }
+  .App h2 {
+    margin-left: 20px; }
+  .App .recordComp {
+    text-align: left;
+    margin: 20px; }
+    .App .recordComp button {
+      margin-left: 10px; }
+    .App .recordComp input {
+      margin: 10px; }
+  .App .cardComponent {
+    width: 850px; }
+  .App .gridComponent {
+    text-align: left;
+    height: 200px;
+    width: 800px;
+    margin: 20px; }
+  .App .redCard {
+    background: red;
+    color: red; }
+
+.greenCard {
+  background: lightgreen;
+  color: green; }
+
+.blueCard {
+  background: lightblue;
+  color: blue; }
