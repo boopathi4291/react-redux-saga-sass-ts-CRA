@@ -6,21 +6,22 @@ import * as React from 'react';
 import { ICardProps } from '../interfaces/card.interface';
 
 function CardComponent(props: ICardProps) {
+  const {classes,recordType,amount} = props;
   return (
-    <div className="card" style={{ display: 'inline-block', marginLeft: '20px', width: '30%' }}>
+    <div className="card" >
       <div>
         <Card >
-          <CardContent className={props.classes}>
-            <Typography>{props.recordType}</Typography>
+          <CardContent className={classes}>
+            <Typography>{recordType}</Typography>
           </CardContent>
           <CardActions>
             <Typography>
-              {props.amount}
+              {amount}
             </Typography>
           </CardActions>
         </Card>
       </div>
     </div>
-  )
+  );
 }
 export default CardComponent;

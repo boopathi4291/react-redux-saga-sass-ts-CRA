@@ -5,5 +5,5 @@ export const Api = {
             method: "get",
             url: process.env.REACT_APP_FETCH_RECORDS_URL,
         });
-    }
+    },
 };

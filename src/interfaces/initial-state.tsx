@@ -1,3 +1,3 @@
-export  interface IStateReocrds{
-    records:[{}]
+export interface IStateReocrds {
+    records: [{}];
   }

@@ -5,33 +5,29 @@ import * as React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from 'redux';
 import { getAllRecords } from '../actions/actions';
-import ClickableRenderer from '../components/clickable';
+import Buttonrenderer from '../components/buttonRenderrer';
+import { I_button_props } from '../interfaces/buttonRenderrer';
 
-
-
-class GridComponent extends React.Component<any, any>{
-    constructor(props: any) {
+class GridComponent extends React.Component<I_button_props, any>{
+    constructor(props:any) {
         super(props);
-        this.state = {
+        this.state = { 
             columnDefs: [
                 { headerName: "Date", field: "date", width: 198 },
                 { headerName: "Title", field: "title", width: 198 },
                 { headerName: "Amount", field: "amount", width: 198 },
-                { headerName: "Actions", field: "title", width: 198, cellRendererFramework: ClickableRenderer }
-
-
+                { headerName: "Actions", field: "title", width: 198, cellRendererFramework: Buttonrenderer }
             ],
             rowData: this.props.records,
-        }
-
+        };
     }
-    componentDidMount() {
+    public componentDidMount() {
         this.props.getAllRecords();
       }
-    componentWillReceiveProps(nextProps:any) {
+    public componentWillReceiveProps(nextProps:any) {
         this.setState({ rowData: nextProps.records });
     }
-    shouldComponentUpdate() {
+    public shouldComponentUpdate() {
         return true
     }
     public render() {
@@ -40,19 +36,17 @@ class GridComponent extends React.Component<any, any>{
                 className="ag-theme-balham gridComponent">
                 <AgGridReact enableSorting={true} enableFilter={true} columnDefs={this.state.columnDefs} rowData={this.state.rowData} />
             </div>
-        )
+        );
     }
 
 }
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: I_button_props) => {
     return {
       records: state.records,
     };
   };
-  
   const mapDispatchToProps = (dispatch: Dispatch) => {
-    return bindActionCreators({ getAllRecords }, dispatch)
+    return bindActionCreators({ getAllRecords }, dispatch);
   };
-  
   export default connect(mapStateToProps, mapDispatchToProps)(GridComponent);
   

@@ -1,5 +1,5 @@
-export  interface Irecords{
-    amount: number,
-    date: string,
-    title:string
+export interface Irecords {
+    amount: number;
+    date: string;
+    title: string;
   }

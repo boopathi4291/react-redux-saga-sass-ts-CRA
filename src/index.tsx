@@ -1,6 +1,6 @@
 /*
  * @component-name: index,
- * @parent : 
+ * @parent : ''
  * @child  : App
  * Use      : provide store to the component
 */
@@ -20,3 +20,4 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
+
