@@ -6,6 +6,7 @@ const app = express();
 
 const SourceMapSupport =  require('source-map-support') ;
 const port = process.env.PORT || 8080;
+const myDataRouter = require("./express-server/router/router")
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -20,16 +21,16 @@ app.get('/', (req,res) => {
     return res.end('Api working');
   })
 
-const router = express.Router();
-router.get('/getAllRecords', (req, res) => {
-    const records=[{date:"2018-02-10", title: "Celica", amount: 55000},
-    {date:"2018-05-20", title: "Boxter", amount: 35000},
-    {date:"2018-07-12", title: "test", amount: -35000},
-    {date:"2018-02-04", title: "react", amount: 50000}];
-  res.json(records);
-});
 
-app.use('/api', router);
+// router.get('/getAllRecords', (req, res) => {
+//     const records=[{date:"2018-02-10", title: "Celica", amount: 55000},
+//     {date:"2018-05-20", title: "Boxter", amount: 35000},
+//     {date:"2018-07-12", title: "test", amount: -35000},
+//     {date:"2018-02-04", title: "react", amount: 50000}];
+//   res.json(records);
+// });
+
+app.use('/myData', myDataRouter);
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

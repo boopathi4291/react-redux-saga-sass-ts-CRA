@@ -1,9 +1,32 @@
-import express from 'express';
-//import controller file
-import * as RecordsController from '../controllers/records';
+var express = require('express');
+
 // get an instance of express router
 const router = express.Router()
+var myDataModel = require("../models/manage-records");
 
-router.get('/getAllRecords',RecordsController.getAllRecords)
+//router.get('/getAllRecords',recors.getAllRecords);
 
-export default router;
+router.get('/getAllRecords',(req,res)=>{
+    let records;
+    myDataModel.find({},function(err,response){
+        records=response;
+        res.json(records);
+    });
+    
+  
+})
+
+/**
+ * yet to be developed
+ * 
+ */
+router.get('/createRecord',(data)=>{
+    console.log(data);
+ myDataModel.insert(data,function(err,response){
+        res.send(response);
+    });
+    
+
+})
+
+module.exports= router;

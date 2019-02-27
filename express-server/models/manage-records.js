@@ -1,12 +1,11 @@
-import mongoose from 'mongoose';
+//import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
+mongoose.connect("mongodb://localhost:27017/myExpenses");
 var Schema = mongoose.Schema({
-  createdAt:{
-    type: Date,
-    default: Date.now
-  },
   date: String,
   title: String,
   amount:Number,
 });
-export default mongoose.model('Records', Schema);
+var myDataModel = mongoose.model('expenseRecords', Schema);
+module.exports = myDataModel;

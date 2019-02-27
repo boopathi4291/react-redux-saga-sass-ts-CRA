@@ -13,11 +13,11 @@ import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from 'redux';
 import { deleteRecord } from '../actions/actions';
 import CreateRecord from '../shared/createRecord';
-import {I_button_State} from '../interfaces/buttonRenderrer';
-import {I_button_props} from '../interfaces/buttonRenderrer';
+// import {I_button_State} from '../interfaces/buttonRenderrer';
+// import {I_button_props} from '../interfaces/buttonRenderrer';
 import { Irecords } from '../interfaces/records';
 
-class Buttonrenderer extends React.Component<I_button_props, I_button_State> {
+class Buttonrenderer extends React.Component<any,any> {
     constructor(props: any) {
         super(props);
         const {value} = this.props.value;

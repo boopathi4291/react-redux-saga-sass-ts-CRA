@@ -8,7 +8,7 @@ import { getAllRecords } from '../actions/actions';
 import Buttonrenderer from '../components/buttonRenderrer';
 import { I_button_props } from '../interfaces/buttonRenderrer';
 
-class GridComponent extends React.Component<I_button_props, any>{
+class GridComponent extends React.Component<any, any>{
     constructor(props:any) {
         super(props);
         this.state = { 

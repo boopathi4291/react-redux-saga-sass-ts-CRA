@@ -1,9 +1,9 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-import Records from '../models/manage-records';
-
-export const getAllRecords = (req,res) => {
-    Records.find().exec((err,records) => {
+//import Records from '../models/manage-records';
+const records = require('../models/manage-records')
+const getAllRecords = (req,res) => {
+    records.find().exec((err,records) => {
         records=[{date:"2018-02-10", title: "Celica", amount: 55000},
                 {date:"2018-05-20", title: "Boxter", amount: 35000},
                 {date:"2018-07-12", title: "test", amount: -35000},
@@ -15,9 +15,8 @@ export const getAllRecords = (req,res) => {
 return res.json({'success':true,'message':'Todos records successfully',records});
   });
 }
-
-export const addRecord = (req,res) => {
-    const newRecord = new Record(req.body);
+const addRecord = (req,res) => {
+    const newRecord = new record(req.body);
     newRecord.save((err,record) => {
       if(err){
       return res.json({'success':false,'message':'Some Error'});
